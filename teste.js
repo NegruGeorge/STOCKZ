@@ -10,7 +10,7 @@ const Validator = require("./validator.js")
 const Service =require("./service.js");
 
 let srv = new Service();
-
+let val = new Validator();
 
 
 
@@ -27,7 +27,7 @@ class Test
     {
         // nu merge pentru ca e lower case
         try{
-            srv.add_stock("cass",123);
+           val.validate_uppercase("cass");
             assert(false);
         }catch(err)
         {
@@ -45,7 +45,8 @@ class Test
 
            // nu merge pentru ca am string in loc de int la pret
            try{
-            srv.add_stock("JJO","dada");
+            val.validate_float("dada");
+            // srv.add_stock("JJO","dada");
             assert(false);
         }catch(err)
         {
