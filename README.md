@@ -13,7 +13,7 @@ YOU CAN USE IT IN CONSOLE OR IN BROWSER
 
 
 What I used?
-express for requests, body-parser for getting the data from requests, ejs for design, readline-sync for reading commands and chalk for making the connsole beautiful
+express for requests, body-parser for getting the data from requests, ejs for design, readline-sync for reading commands and chalk for making the console beautiful
 
 
 What I learned ?
