@@ -5,11 +5,14 @@ YOU GET A JSON WITH STOCKS AND YOU PERFORM CRUD OPERATIONS ON IT
 YOU CAN USE IT IN CONSOLE OR IN BROWSER
 
 #HOW TO RUN IT
+
 1)Download the zip file
 
 2)type in terminal: npm install
 
-3) enjoy
+3)type in terminal: node app.js
+
+4) enjoy
 
 
 What I used?
