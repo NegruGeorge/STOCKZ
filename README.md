@@ -14,9 +14,11 @@ YOU CAN USE IT IN CONSOLE OR IN BROWSER
 
 4) enjoy
 
+You can run test.js to see the tests that I did
 
 What I used?
 express for requests, body-parser for getting the data from requests, ejs for design, readline-sync for reading commands and chalk for making the console beautiful
+
 
 
 What I learned ?
