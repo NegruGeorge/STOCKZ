@@ -1,0 +1,136 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stockz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+</head>
+<body>
+    
+    <!-- aici imi verific erorile pe care le trimit daca pusca validatorul -->
+
+    <% if(typeof error !== 'undefined') { %>
+    <%if(error !==true){%>
+        <script>
+            
+              Swal.fire({
+            title:"Stock was added",
+            confirmButtonText:"ok"
+        })
+        </script>
+    <%}else if(error===true) { %>
+        <script>
+            Swal.fire({
+          title:"Invalid stock :(",
+          text: `<%=message%>`,
+          confirmButtonText:"ok"
+      })
+    </script>
+        <%}%>
+<%}%>
+
+
+<% if(typeof error1 !== 'undefined') { %>
+    <%if(error1 !==true){%>
+        <script>
+            
+              Swal.fire({
+            title:"Stocks are filtered",
+            confirmButtonText:"ok"
+        })
+        </script>
+    <%}else if(error1===true) { %>
+        <script>
+            Swal.fire({
+          title:"Invalid stock :(",
+          text: `<%=message%>`,
+          confirmButtonText:"ok"
+      })
+    </script>
+        <%}%>
+<%}%>
+
+
+
+
+<div class="container">
+   
+    <div class="acc">
+        <form class ="search_form" method="POST" action="/search">
+            <input type="search" placeholder="search a stock" name="search" id="input_search">
+            <button class="button_search button button-primary">search</button>
+        </form>
+    
+        <div class="tasks">
+    
+                
+                <a id="add_stock" href="#" class="btn_tasks button button-primary">Add stock</a>
+                <a id="filter_stock" href="#" class="btn_tasks button button-primary">Filter Stocks</a>
+                <a  href="/" class="btn_tasks button button-primary">Get All</a>
+                <a href="/CMD" id="CMD" class=" btn_tasks button button-primary">RUN CMD</a>
+      
+        </div>
+        <% stocks.forEach((stock)=>{%>
+            <div class="flexbox-item">
+                <h1 class="h1_stock"><strong><%=stock.name%></strong> Stock costs: <%=stock.price%>$</h1>
+            </div>
+    
+        <%})%>
+      
+
+
+    </div>
+
+ 
+
+   
+</div>
+
+
+
+<div class="bg-model-add">
+    <div class="model-content-add">
+
+        <div class="close-add">+</div>
+        <h3>Add stock</h3>
+        <img src="/images/stock.jpeg" alt="" style="height: 100px; width: 130px;">
+        <form method="POST" action="/add_stock">
+            <input class="input_model" type="text" placeholder="Stock Name" name="stock_name">
+            <input  class="input_model "type="text" placeholder="Stock price" name="stock_price">
+         
+            <button>Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+<div class="bg-model-filter">
+    <div class="model-content-filter">
+
+        <div class="close-filter">+</div>
+        <h3>Filter Stocks</h3>
+        <img src="/images/stock.jpeg" alt="" style="height: 100px; width: 130px;">
+        <form method="POST" action="/filter_stocks">
+            <input class="input_model" type="text" placeholder="Limit Price" name="limit">
+            <label for="#order">order must be 1(asc) or 0(desc)</label>
+            <input  class="input_model "type="text" id="order" placeholder="Order" name="order">
+            <button>Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+<script src="js/model.js"></script>
+
+</body>
+</html>
